@@ -5,7 +5,7 @@ trigger:
       - main   # or your main branch name
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'Default'
 
 steps:
 - task: UseDotNet@2
