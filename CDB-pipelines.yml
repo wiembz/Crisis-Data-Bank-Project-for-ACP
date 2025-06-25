@@ -1,0 +1,23 @@
+
+trigger:
+  branches:
+    include:
+      - main   # or your main branch name
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.x'
+  displayName: 'Install .NET SDK'
+
+- script: dotnet restore backend/YourBackendProject.csproj
+  displayName: 'Restore dependencies'
+
+- script: dotnet build backend/YourBackendProject.csproj --configuration Release --no-restore
+  displayName: 'Build project'
+
+
